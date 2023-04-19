@@ -4,14 +4,12 @@ const   Frist = require('../models/Frist')
 router.post('/fristpage',async(req,res)=>{
     const photof=req.body.photof;
     const fristheading=req.body.fristheading;
-    const fristpara=req.body.fristpara;
    
     try {
         const fristpage="fristpage";
         const creat= await Frist.create({
             photof:photof,
             fristheading:fristheading,
-            fristpara:fristpara,
             fristpage:fristpage
         })
         res.json({creat});

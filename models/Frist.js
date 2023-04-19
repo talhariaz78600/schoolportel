@@ -3,16 +3,14 @@ const {Schema}=mongoose;
 const FristSchema= new Schema({
     photof:{
         type:String,
+        require:true
     },
     fristheading:{
         type:String,
     },
-    fristpara:{
-        type:String,
-        require:true
-    },
     fristpage:{
         type:String,
+        require:true
         
     },
     date: { 
@@ -22,5 +20,5 @@ const FristSchema= new Schema({
     })
 
 const User=mongoose.model('frist',FristSchema);
-User.createIndexes();
+// User.createIndexes();
 module.exports=User;
