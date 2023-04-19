@@ -14,8 +14,8 @@ const PortelState = (props) => {
   const [fff,fristpp]=useState({});
   const [active, actives] = useState([]);
   
-  const local = "http://localhost:4000";
-  // const local="";
+  // const local = "http://localhost:4000";
+  const local="";
 
   ///////////////////////////////Create  a student///////////////////////////
   const createstudent = async (studentname, fathername, studentclass, phoneno, studentrollno, email, password, host) => {
@@ -394,18 +394,20 @@ const studentdata=async()=>{
   
 }
 ////////////////////////////first page////////////////////////////
-const fristpage= async(photof,fristheading,fristpara)=>{
+const fristpage= async(photof,fristheading)=>{
+  if (localStorage.getItem('ttoken')) {
   const response= await fetch(`${local}/api/frist/fristpage`,{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
     },
-    body:JSON.stringify({photof,fristheading,fristpara})
+    body:JSON.stringify({photof,fristheading})
   })
   const res= await response.json();
  
   fristpp(res.creat);
  
+}
 }
 ////////////////////////////////////
 const fetchactivites = async () => {
@@ -419,6 +421,7 @@ const fetchactivites = async () => {
   })
   const res = await response.json();
   actives(res.activites);
+
 }
   return (
     <noteContext.Provider value={{active,fetchactivites,fff,fristpage,studentdata,studentd,studentlogin,updateresult,deleteresult,subjectres,fetchresult,result,getattendence,atend,attendance,classstudent,studentc,fetchteacherdata,teacherd,teacherlogin,createteacher, updatestudent, deletestudent, singles, singlestudent, loginadmin, fetchadmin, admind, fetchallteacher, allt, alls, fetchallstudent, deleteteacher, updateteacher, createstudent }} >

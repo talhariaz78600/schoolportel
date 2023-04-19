@@ -5,14 +5,14 @@ import noteContext from '../context/portels/portelContext';
 function Frist() {
     const use=useContext(noteContext);
     const {fristpage,fff}=use;
-    const [frist, fristp] = useState({ heading: "", para: "" })
+    const [frist, fristp] = useState({ heading: ""})
     const [im, img] = useState({ Image: "" })
     const onchange = (e) => {
         fristp({ ...frist, [e.target.name]: e.target.value })
     }
     const submit = (e) => {
         e.preventDefault();
-        fristpage(im.Image,frist.heading,frist.para);
+        fristpage(im.Image,frist.heading);
         // console.log(fff.photof)
     }
     const onimage = async (e) => {
@@ -37,11 +37,6 @@ function Frist() {
                             <div className="col-sm-4">
                                 <input type="text" className="form-control mt-3" id="heading" name="heading" placeholder="Enter the heading" onChange={onchange} />
                             </div>
-                            <div className="col-sm-3">
-                                <input type="text" className="form-control mt-3" id="para" name="para" placeholder="Enter paragraph" onChange={onchange} />
-                            </div>
-
-
                             <div className="col-auto">
                                 <button type="submit mt-1" className="btn btn-primary">Submit</button>
                             </div>
