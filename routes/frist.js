@@ -6,15 +6,19 @@ router.post('/fristpage',async(req,res)=>{
     const fristheading=req.body.fristheading;
     const fristpara=req.body.fristpara;
    
-
-    const fristpage="fristpage";
-    const creat= await Frist.create({
-        photof:photof,
-        fristheading:fristheading,
-        fristpara:fristpara,
-        fristpage:fristpage
-    })
-    res.json({creat});
+    try {
+        const fristpage="fristpage";
+        const creat= await Frist.create({
+            photof:photof,
+            fristheading:fristheading,
+            fristpara:fristpara,
+            fristpage:fristpage
+        })
+        res.json({creat});
+        
+    } catch (error) {
+        console.error(error);
+    }
 
 })
 ////////////////////////fetch information for activites//////////////////////
