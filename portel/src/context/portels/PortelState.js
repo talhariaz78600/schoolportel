@@ -14,8 +14,8 @@ const PortelState = (props) => {
   const [fff,fristpp]=useState({});
   const [active, actives] = useState([]);
   
-  // const local = "http://localhost:4000";
-  const local="";
+  const local = "http://localhost:4000";
+  // const local="";
 
   ///////////////////////////////Create  a student///////////////////////////
   const createstudent = async (studentname, fathername, studentclass, phoneno, studentrollno, email, password, host) => {
