@@ -40,5 +40,5 @@ const StudentSchema= new Schema({
 });
 
 const User=mongoose.model('student',StudentSchema);
-User.createIndex()
+User.createIndexes();
 module.exports=User;
