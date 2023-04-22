@@ -7,8 +7,12 @@ function Studentprofile() {
     const use = useContext(noteContext)
     const { studentdata, studentd } = use;
     useEffect(() => {
+        
         studentdata();
-        localStorage.setItem('studentrollno', studentd.studentrollno)
+        setTimeout(() => {
+            
+            localStorage.setItem('studentrollno', studentd.studentrollno)
+        }, 1000);
         /* eslint-disable react-hooks/exhaustive-deps */
     }, []);
     return (
