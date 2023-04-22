@@ -20,5 +20,5 @@ const FristSchema= new Schema({
     })
 
 const User=mongoose.model('frist',FristSchema);
-// User.createIndexes();
+User.createIndexes();
 module.exports=User;

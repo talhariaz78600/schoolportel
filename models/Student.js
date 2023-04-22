@@ -40,5 +40,5 @@ const StudentSchema= new Schema({
 });
 
 const User=mongoose.model('student',StudentSchema);
-User.createIndexes();
+User.createIndex({name: 1}, {maxTimeMS: 20000})
 module.exports=User;
