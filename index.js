@@ -22,7 +22,7 @@ app.use('/api/frist',require('./routes/frist'));
 //serving the fornted
 app.use(express.static(path.join(__dirname,'./portel/build')))
 app.get('*',(req,res)=>{
-  path.join("./portel/build/index.html"),
+  path.join("./portel/build/200.html"),
   function(err){
     res.status(500).send(err);
   }
