@@ -152,9 +152,7 @@ router.put('/updatestudentdata/:id',  async (req, res) => {
     ////////////////Find the note to be updated and updated it/////////////
     let student = await Student.findById(req.params.id);
     if (!student) { return res.status(404).send("not found") }
-    // if(Student.student.toString()!==req.student.id){
-    //     return res.status(401).send("not allowed");
-    // }
+    
     student = await Student.findByIdAndUpdate(req.params.id, { $set: newData }, { new: true })
     res.json({ student });
 
@@ -171,9 +169,7 @@ router.delete('/deletestudent/:id', async (req, res) => {
     ////////////////Find the note to be updated and updated it/////////////
     let student = await Student.findById(req.params.id);
     if (!student) { return res.status(404).send("not found") }
-    // if(teachers.teacher.toString()!==req.teacher.id){
-    //     return res.status(401).send("not allowed");
-    // }
+    
     student = await Student.findByIdAndDelete(req.params.id)
     res.json({ "student": "student deleted has been successfull" });
   } catch (error) {
@@ -182,21 +178,6 @@ router.delete('/deletestudent/:id', async (req, res) => {
 
 
 })
-///////////////////////////////student attendence:/api/student/studentattendence//////////
-// router.get('/studentattendence',[
-//   body('studentrollno').isLength({ min: 2 }),
-//   body('studentname', 'password must be atleat 5 character').isLength({ min: 5 })
-// ],async (req,res)=>{
-//   const errors = validationResult(req);
-//   if (!errors.isEmpty()) {
-//     return res.status(400).json({ errors: errors.array() });
-//   }
-//   const {studentname,rollno}=req.body;
-//   const note = new Student({
-//     studentname,rollno,attendence:req.header('attendence')
-// })
-//  note.save();
-//  res.json(note);
-// })
+
 
 module.exports = router;
