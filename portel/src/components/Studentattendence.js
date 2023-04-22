@@ -7,7 +7,10 @@ function Studentattendence() {
     const {atend,studentdata,getattendence}=use;
     useEffect(() => {
      studentdata();
-     getattendence();
+     setTimeout(() => {
+         getattendence();
+         
+     }, 1000);
      // eslint-disable-next-line
     }, []);
 

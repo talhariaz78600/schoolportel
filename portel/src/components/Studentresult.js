@@ -8,8 +8,11 @@ function Studentresult() {
     let totalmark = 0;
     let total = 0;
     useEffect(() => {
-        fetchresult();
         studentdata();
+        setTimeout(() => {
+            
+            fetchresult();
+        }, 1000);
         /* eslint-disable react-hooks/exhaustive-deps */
     }, []);
 
