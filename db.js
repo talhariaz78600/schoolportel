@@ -6,16 +6,17 @@ const MongoClient = require('mongodb').MongoClient;
 
 
 const connectToMongo = () => {
-  MongoClient.connect(mongooseURI, function(err, db) {
-    if (err) throw err;
-    console.log("Connected to database!");
+  // MongoClient.connect(mongooseURI, function(err, db) {
+  //   if (err) throw err;
+  //   console.log("Connected to database!");
     
-    // Perform database operations here...
+  //   // Perform database operations here...
     
-    db.close();
-  });
+  //   db.close();
+  // });
   
-  mongoose.connect(mongooseURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  mongoose.connect(mongooseURI, { useNewUrlParser: true, useUnifiedTopology: true ,connectTimeoutMS: 50000,
+    socketTimeoutMS: 50000})
     .then(() => console.log('Connected to MongoDB!'))
     .catch(error => console.error('Error connecting to MongoDB:', error));
 }
