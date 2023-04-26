@@ -27,7 +27,8 @@ app.get('*',(req,res)=>{
     res.status(500).send(err);
   }
 })
-app.listen(port, () => {
+const server=app.listen(port, () => {
   console.log(`inotebook app listening on port ${port}`)
   
 })
+server.timeout = 60000;
