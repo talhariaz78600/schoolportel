@@ -28,7 +28,7 @@ const Result=new Schema({
     }
 
 })
-const User=mongoose.model('result',Result);
-User.createIndexes();
-module.exports=User;
+Result.index({ name: 1 }, { maxTimeMS: 20000 });
+
+module.exports = mongoose.model('result', Result);
 

@@ -26,6 +26,6 @@ const AdminSchema= new Schema({
 
     }
 })
-const User=mongoose.model('schooladmin',AdminSchema);
-User.createIndexes();
-module.exports=User;
+AdminSchema.index({ name: 1 }, { maxTimeMS: 20000 });
+
+module.exports = mongoose.model('schooladmin', AdminSchema);

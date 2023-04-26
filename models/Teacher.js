@@ -38,6 +38,6 @@ const TeacherSchema= new Schema({
         default: Date.now
     },
 });
-const Teacher=mongoose.model('teacher',TeacherSchema);
-Teacher.createIndexes();
-module.exports=Teacher;
+TeacherSchema.index({ name: 1 }, { maxTimeMS: 20000 });
+
+module.exports = mongoose.model('teacher', TeacherSchema);

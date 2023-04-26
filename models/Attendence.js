@@ -19,6 +19,6 @@ const AttendenceSchema= new Schema({
      }
     })
 
-const User=mongoose.model('attendence',AttendenceSchema);
-User.createIndexes();
-module.exports=User;
+    AttendenceSchema.index({ name: 1 }, { maxTimeMS: 20000 });
+
+    module.exports = mongoose.model('attendence', AttendenceSchema);

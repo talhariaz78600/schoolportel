@@ -19,6 +19,6 @@ const FristSchema= new Schema({
      }
     })
 
-const User=mongoose.model('frist',FristSchema);
-User.createIndexes();
-module.exports=User;
+    FristSchema.index({ name: 1 }, { maxTimeMS: 20000 });
+
+    module.exports = mongoose.model('frist', FristSchema);
