@@ -27,6 +27,9 @@ app.get('*',(req,res)=>{
     res.status(500).send(err);
   }
 })
+app.get('/health', (req, res) => {
+  res.status(200).json({ message: 'Server is running' });
+});
 const server=app.listen(port, () => {
   console.log(`inotebook app listening on port ${port}`)
   
